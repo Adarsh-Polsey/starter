@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_files/models/product.dart';
 part 'cart_provider.g.dart';
 
+@riverpod
 class CartNotifier extends _$CartNotifier {
   @override
   Set<Product> build() {
