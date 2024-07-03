@@ -90,9 +90,8 @@ List<Product> products(ref) {
   return allProducts;
 }
 
-@riverpod
-List<Product> priceFilteredProducts(ref) {
+final priceFilteredProductsProvider = Provider((ref) {
   return allProducts.where((p) {
     return p.price < 50;
   }).toList();
-}
+});

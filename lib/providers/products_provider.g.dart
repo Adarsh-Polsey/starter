@@ -20,22 +20,5 @@ final productsProvider = AutoDisposeProvider<List<Product>>.internal(
 );
 
 typedef ProductsRef = AutoDisposeProviderRef<List<Product>>;
-String _$priceFilteredProductsHash() =>
-    r'b7d38ae16a809d5fbb0187467aae4813576f2d74';
-
-/// See also [priceFilteredProducts].
-@ProviderFor(priceFilteredProducts)
-final priceFilteredProductsProvider =
-    AutoDisposeProvider<List<Product>>.internal(
-  priceFilteredProducts,
-  name: r'priceFilteredProductsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$priceFilteredProductsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef PriceFilteredProductsRef = AutoDisposeProviderRef<List<Product>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
