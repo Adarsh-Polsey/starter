@@ -14,7 +14,8 @@ class _CartScreenState extends ConsumerState<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final products = ref.watch(cartNotifierProvider);
+    final total = ref.watch(totalCartProvider);
+    final products = ref.read(cartNotifierProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Cart'),
@@ -43,6 +44,15 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                         const Expanded(child: SizedBox()),
                         Text(p.price.toString()),
                         const SizedBox(width: 10),
+                        TextButton(
+                          onPressed: () {
+                            ref
+                                .read(cartNotifierProvider.notifier)
+                                .removeProduct(p);
+                          },
+                          child: const Text("Remove"),
+                        ),
+                        const SizedBox(width: 10),
                       ],
                     ),
                   ),
@@ -51,6 +61,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
             ),
 
             // output totals here
+            Text("Total : ${total.ceilToDouble()}")
           ],
         ),
       ),
